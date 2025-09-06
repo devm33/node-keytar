@@ -26,11 +26,12 @@
     "lib",
     "src",
     "binding.gyp",
-    "keytar.d.ts"
+    "keytar.d.ts",
+    "prebuilds/**/*"
   ],
   "types": "./keytar.d.ts",
   "scripts": {
-    "install": "prebuild-install || npm run build",
+    "install": "node script/install.js || npm run build",
     "build": "node-gyp rebuild",
     "lint": "npm run cpplint",
     "cpplint": "node-cpplint --filters legal-copyright,build-include,build-namespaces src/*.cc",

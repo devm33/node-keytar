@@ -93,6 +93,10 @@ jobs:
         ls prebuilds/
       name: List prebuilds
 
+    - uses: actions/upload-artifact@v4
+      with:
+        path: prebuilds/
+
     - name: Upload prebuilds to GitHub
       run: npx prebuild --verbose --upload-all ${{ secrets.GITHUB_TOKEN }}
       if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
@@ -127,7 +131,7 @@ jobs:
   npm-publish:
     needs: [build, alpine-build]
     name: Publish to NPM
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
 
     steps:
@@ -143,6 +147,11 @@ jobs:
 
     - run: npm ci
       name: Setup environment
+
+    - uses: actions/download-artifact@v4
+      with:
+        path: prebuilds
+        merge-multiple: true
 
     - run: npm publish --access public
       name: Upload to NPM
