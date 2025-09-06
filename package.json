@@ -7,12 +7,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shiftkey/node-keytar.git"
+    "url": "https://github.com/devm33/node-keytar.git"
   },
   "bugs": {
-    "url": "https://github.com/shiftkey/node-keytar/issues"
+    "url": "https://github.com/devm33/node-keytar/issues"
   },
-  "homepage": "https://github.com/shiftkey/node-keytar",
+  "homepage": "https://github.com/devm33/node-keytar",
   "keywords": [
     "keychain",
     "password",
