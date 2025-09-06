@@ -86,7 +86,21 @@ jobs:
     - run: |
         ls -R prebuilds/
       name: List prebuilds
+      shell: bash    
+
+    # untar each prebuild file named *<platform>-<arch>.tar.gz
+    # and move its build/Release/ contents to a directory <platform>-<arch>/
+    - run: |
+        for f in *.tar.gz; do
+          platform_arch="${f%.tar.gz}"
+          platform_arch="${platform_arch##*-v3-}"
+          mkdir -p "$platform_arch"
+          tar -xzf "$f" -C "$platform_arch" --strip-components=2
+        done
+        rm *.tar.gz
+      name: Extract prebuilds
       shell: bash
+      working-directory: prebuilds
 
     - uses: actions/upload-artifact@v4
       with:
@@ -118,20 +132,6 @@ jobs:
     - run: |
         ls prebuilds/
       name: List prebuilds
-
-    # untar each prebuild file named *<platform>-<arch>.tar.gz
-    # and move its build/Release/ contents to a directory <platform>-<arch>/
-    - run: |
-        for f in *.tar.gz; do
-          platform_arch="${f%.tar.gz}"
-          platform_arch="${platform_arch##*-v3-}"
-          mkdir -p "$platform_arch"
-          tar -xzf "$f" -C "$platform_arch" --strip-components=2
-        done
-        rm *.tar.gz
-      name: Extract prebuilds
-      shell: bash
-      working-directory: prebuilds
 
     - name: Upload prebuilds to GitHub
       run: npx prebuild --verbose --upload-all ${{ secrets.GITHUB_TOKEN }}
