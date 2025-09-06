@@ -84,8 +84,9 @@ jobs:
       name: Prebuild (Linux x86 + ARM64 + ARMV7L)
 
     - run: |
-        ls prebuilds/
+        ls -R prebuilds/
       name: List prebuilds
+      shell: bash
 
     - uses: actions/upload-artifact@v4
       with:
