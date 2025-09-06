@@ -25,9 +25,10 @@
   "files": [
     "lib",
     "src",
+    "script",
     "binding.gyp",
     "keytar.d.ts",
-    "prebuilds/**/*"
+    "prebuilds"
   ],
   "types": "./keytar.d.ts",
   "scripts": {
