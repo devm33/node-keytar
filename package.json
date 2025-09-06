@@ -1,7 +1,7 @@
 {
   "main": "./lib/keytar.js",
   "typings": "keytar.d.ts",
-  "name": "keytar-forked",
+  "name": "keytar-forked-forked",
   "description": "Bindings to native Mac/Linux/Windows password APIs (forked)",
   "version": "7.10.0",
   "license": "MIT",
