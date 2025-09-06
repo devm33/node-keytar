@@ -89,6 +89,7 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
+        name: prebuild-${{ matrix.os }}
         path: prebuilds/
 
     - name: Upload prebuilds to GitHub
