@@ -50,8 +50,7 @@
     "prebuild": "^13.0.1"
   },
   "dependencies": {
-    "node-addon-api": "^8.3.0",
-    "prebuild-install": "^7.1.3"
+    "node-addon-api": "^8.3.0"
   },
   "binary": {
     "napi_versions": [
