@@ -3,7 +3,7 @@ const path = require('path');
 
 /** Script to copy prebuilds for the current platform to build/Release directory. */
 
-const prebuildsDir = path.join(__dirname, '../prebuilds', process.platform, process.arch);
+const prebuildsDir = path.join(__dirname, '../prebuilds', `${process.platform}-${process.arch}`);
 const releaseDir = path.join(__dirname, '../build/Release');
 
 if (!fs.existsSync(prebuildsDir)) {
