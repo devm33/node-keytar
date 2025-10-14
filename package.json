@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/devm33/node-keytar.git"
+    "url": "git+https://github.com/devm33/node-keytar.git"
   },
   "bugs": {
     "url": "https://github.com/devm33/node-keytar/issues"
